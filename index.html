@@ -34,7 +34,7 @@
   h1,h2,h3,h4{font-family:'Space Grotesk', sans-serif;margin:0;letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono', monospace;}
   a{color:inherit;}
-  #about,#work-history,#experience,#case-studies,#services,#industries,#results,#tools,#ai-seo,#contact{scroll-margin-top:70px;}
+  #about,#work-history,#experience,#case-studies,#recommendations,#services,#industries,#results,#tools,#ai-seo,#contact{scroll-margin-top:70px;}
 
   /* ---------- NAV ---------- */
   nav{border-bottom:1px solid var(--line);padding:16px 0;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);z-index:10;}
@@ -154,6 +154,19 @@
   .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
   .tools-col h4{font-family:'IBM Plex Mono';font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:12px;}
 
+  /* testimonials */
+  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .testi-card{border:1px solid var(--line);border-radius:12px;padding:22px 22px 18px;background:var(--paper-alt);}
+  .testi-quote-mark{font-family:'Space Grotesk';font-size:32px;font-weight:700;line-height:1;margin-bottom:6px;display:block;}
+  .testi-card.q1 .testi-quote-mark{color:var(--blue);}
+  .testi-card.q2 .testi-quote-mark{color:var(--coral);}
+  .testi-card.q3 .testi-quote-mark{color:var(--violet);}
+  .testi-text{font-size:13.5px;color:var(--ink);line-height:1.6;margin:0 0 16px;}
+  .testi-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .testi-person{font-family:'Space Grotesk';font-weight:600;font-size:13.5px;}
+  .testi-role{font-family:'IBM Plex Mono';font-size:11px;color:var(--mute);display:block;margin-top:2px;}
+  .testi-badge{font-family:'IBM Plex Mono';font-size:10.5px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:3px 9px;color:var(--mute);white-space:nowrap;}
+
   /* footer */
   footer{padding:56px 0 64px;}
   .cta-box{
@@ -176,10 +189,10 @@
     .expertise-grid{grid-template-columns:1fr !important;}
     .stat-grid{grid-template-columns:1fr 1fr;}
     .tools-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
     .nav-links{display:none;}
   }
 </style>
-<link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
@@ -196,6 +209,7 @@
       <a href="#work-history">Experience</a>
       <a href="#experience">Expertise</a>
       <a href="#case-studies">Case Studies</a>
+      <a href="#recommendations">Recommendations</a>
       <a href="#services">Services</a>
       <a href="#industries">Industries</a>
       <a href="#results">Results</a>
@@ -566,6 +580,78 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<section class="section" id="recommendations">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recommendations</h2>
+      <span class="section-count mono">from LinkedIn</span>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card q1">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">Carlos delivers from day one. He executes technical SEO, reviews code, and aligns with campaign goals without slowing down or making excuses. I didn't need to follow up — he keeps everything moving and proactively shares new ideas. I recommend Carlos without reservation.</p>
+        <div class="testi-foot">
+          <div>
+            <span class="testi-person">Nick Cybela</span>
+            <span class="testi-role">Helping people rethink what's possible with AI</span>
+          </div>
+          <span class="testi-badge">Managed Carlos directly</span>
+        </div>
+      </div>
+
+      <div class="testi-card q2">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">Carlos consistently demonstrates an exceptional level of professionalism, producing well-structured, responsive code with impressive speed and efficiency across WordPress, DealerOn, Dealer Inspire, and other CMSs — delivering on time, even under tight deadlines.</p>
+        <div class="testi-foot">
+          <div>
+            <span class="testi-person">Brandi Race</span>
+            <span class="testi-role">Front-End Web Developer & Designer · SEO Strategist</span>
+          </div>
+          <span class="testi-badge">Senior colleague</span>
+        </div>
+      </div>
+
+      <div class="testi-card q3">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">When Carlos first joined the team, he hit the ground running, quickly mastering our tools with minimal guidance — maintaining a fast pace on page builds (well above 50+ when the average was 45) and taking on new CMSs with ease and clean code.</p>
+        <div class="testi-foot">
+          <div>
+            <span class="testi-person">Nat Kendall</span>
+            <span class="testi-role">Design Manager · Web Developer · Educator</span>
+          </div>
+          <span class="testi-badge">Managed Carlos directly</span>
+        </div>
+      </div>
+
+      <div class="testi-card q1">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">Carlos is a highly intelligent and kind professional, always eager to learn and improve his programming skills. His commitment to excellence and readiness to support the team stand out.</p>
+        <div class="testi-foot">
+          <div>
+            <span class="testi-person">Daniela Achury Ruiz</span>
+            <span class="testi-role">Social Media Manager · Digital Marketing</span>
+          </div>
+          <span class="testi-badge">Worked on the same team</span>
+        </div>
+      </div>
+
+      <div class="testi-card q2">
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-text">Carlos takes the time to understand the needs and priorities of the project. He is not afraid to ask questions and be aware of the daily activities.</p>
+        <div class="testi-foot">
+          <div>
+            <span class="testi-person">Julian Ricaurte</span>
+            <span class="testi-role">SEO Design · WordPress Designer · UI Designer</span>
+          </div>
+          <span class="testi-badge">Worked on the same team</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
