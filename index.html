@@ -41,6 +41,13 @@
   nav .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
   .brand{font-family:'Space Grotesk';font-weight:700;font-size:16px;}
   .brand span{color:var(--blue);}
+  .brand-row{display:flex;align-items:center;gap:10px;}
+  .avatar{
+    width:34px;height:34px;border-radius:50%;background:var(--blue-soft);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    border:2px solid var(--blue);overflow:hidden;
+  }
+  .avatar svg{width:20px;height:20px;}
   .nav-links{display:flex;gap:16px;flex-wrap:wrap;}
   .nav-links a{font-family:'IBM Plex Mono';font-size:11.5px;text-decoration:none;color:var(--mute);text-transform:uppercase;letter-spacing:.04em;}
   .nav-links a:hover{color:var(--coral);}
@@ -177,7 +184,12 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand">Carlos Carela <span>/ SEO Specialist</span></div>
+    <div class="brand-row">
+      <div class="avatar">
+        <img src="Carlos%20Headshot.png" alt="Carlos Carela" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' style=\'width:20px;height:20px\'><circle cx=\'12\' cy=\'8\' r=\'4\' fill=\'%232952E3\'/><path d=\'M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7\' stroke=\'%232952E3\' stroke-width=\'1.8\' stroke-linecap=\'round\'/></svg>';">
+      </div>
+      <div class="brand">Carlos Carela <span>/ SEO</span></div>
+    </div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#work-history">Experience</a>
