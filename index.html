@@ -146,18 +146,32 @@ nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:var(--b)
 .engine:nth-child(5){background:var(--orange);color:var(--ink);grid-column:span 2}
 
 /* RECS */
-.recs{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 24px}
-.rec{flex:0 0 min(380px,85%);scroll-snap-align:start;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.slider{position:relative}
+.recs{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:6px 6px 24px;transition:height .35s ease}
+.recs::-webkit-scrollbar{display:none}
+.rec{flex:0 0 min(380px,85%);scroll-snap-align:start;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;margin:0}
+.rec.long{flex-basis:min(620px,85%)}
 .rec:nth-child(5n+1){background:var(--yellow)}
 .rec:nth-child(5n+2){background:#9EC1FF}
 .rec:nth-child(5n+3){background:var(--lime)}
 .rec:nth-child(5n+4){background:#FFB3C9}
 .rec:nth-child(5n+5){background:#FFC58F}
-.rec q{font-size:18px;font-weight:500;quotes:"“" "”"}
-.rec q::before{content:"“";display:block;font-family:"Archivo Black","Arial Black",sans-serif;font-size:70px;line-height:.6;margin-bottom:12px}
+.rec blockquote{font-size:18px;font-weight:500}
+.rec blockquote::before{content:"“";display:block;font-family:"Archivo Black","Arial Black",sans-serif;font-size:70px;line-height:.6;margin-bottom:12px}
+.rec blockquote p + p{margin-top:10px}
 .rec .who b{display:block;font-size:18px}
 .rec .who span{font-size:14px}
 .rec .rel{display:inline-block;margin-top:8px;background:var(--ink);color:var(--bg);border-radius:6px;padding:2px 8px;font-size:12px;font-family:"JetBrains Mono"}
+.sl-ctrl{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:10px}
+.dots{display:flex;gap:8px;flex-wrap:wrap}
+.dot{width:14px;height:14px;border-radius:999px;border:2px solid var(--ink);background:var(--paper);cursor:pointer;padding:0;transition:width .25s,background .25s}
+.dot[aria-current="true"]{width:40px;background:var(--pink)}
+.arrows{display:flex;gap:12px;align-items:center}
+.arr{width:56px;height:56px;border:var(--b);border-radius:50%;background:var(--paper);box-shadow:var(--sh-sm);font-size:24px;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.arr:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);background:var(--yellow)}
+.arr:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.count{font-family:"JetBrains Mono";font-size:14px;min-width:54px;text-align:center}
+@media (max-width:760px){.recs{align-items:flex-start}.arr{width:48px;height:48px;font-size:20px}}
 
 /* SERVICES / INDUSTRIES */
 .two{display:grid;grid-template-columns:1.6fr 1fr;gap:22px}
@@ -271,7 +285,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <div class="hero-art rv">
       <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0l11 35 39 0-31 22 12 38-31-23-31 23 12-38L0 35h39z" fill="#B6F25A" stroke="#121212" stroke-width="4"/></svg>
       <div class="photo">
-        <div class="fallback"></div>
+        <div class="fallback">CC</div>
         <img src="carlos_headshot.png" alt="Portrait of Carlos Carela" onerror="this.remove()">
       </div>
       <div class="sticker s1"><b>+400%</b>YoY organic</div>
@@ -511,14 +525,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   <div class="wrap">
     <div class="sec-head rv">
       <h2>What people<br>say.</h2>
-      <span class="tag mono">from LinkedIn · scroll →</span>
+      <span class="tag mono">from LinkedIn · 06 reviews</span>
     </div>
-    <div class="recs">
-      <figure class="card rec"><q>Carlos delivers from day one. He executes technical SEO, reviews code, and aligns with campaign goals without slowing down or making excuses. I didn't need to follow up — he keeps everything moving and proactively shares new ideas. I recommend Carlos without reservation.</q><figcaption class="who"><b>Nick Cybela</b><span>Helping people rethink what's possible with AI</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
-      <figure class="card rec"><q>Carlos consistently demonstrates an exceptional level of professionalism, producing well-structured, responsive code with impressive speed and efficiency across WordPress, DealerOn, Dealer Inspire, and other CMSs — delivering on time, even under tight deadlines.</q><figcaption class="who"><b>Brandi Race</b><span>Front-End Web Developer &amp; Designer · SEO Strategist</span><br><span class="rel">Senior colleague</span></figcaption></figure>
-      <figure class="card rec"><q>When Carlos first joined the team, he hit the ground running, quickly mastering our tools with minimal guidance — maintaining a fast pace on page builds (well above 50+ when the average was 45) and taking on new CMSs with ease and clean code.</q><figcaption class="who"><b>Nat Kendall</b><span>Design Manager · Web Developer · Educator</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
-      <figure class="card rec"><q>Carlos is a highly intelligent and kind professional, always eager to learn and improve his programming skills. His commitment to excellence and readiness to support the team stand out.</q><figcaption class="who"><b>Daniela Achury Ruiz</b><span>Social Media Manager · Digital Marketing</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
-      <figure class="card rec"><q>Carlos takes the time to understand the needs and priorities of the project. He is not afraid to ask questions and be aware of the daily activities.</q><figcaption class="who"><b>Julian Ricaurte</b><span>SEO Design · WordPress Designer · UI Designer</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
+    <div class="slider" id="slider">
+      <div class="recs" id="recs" tabindex="0" aria-label="LinkedIn recommendations" aria-roledescription="carousel">
+        <figure class="card rec long" aria-roledescription="slide"><blockquote>
+          <p>I highly recommend Carlos. From the beginning, he took the time to understand our business and put together a clear game plan. He checks in with me every week to review our progress, track results, and determine our next steps.</p>
+          <p>What started as a fairly defined project has continued to expand because we are seeing real results. Within just two months of working together, we saw a measurable increase in website sales as well as inquiries for our ergonomic services.</p>
+          <p>Carlos is knowledgeable, responsive, and focused on results. I especially appreciate that he doesn’t just make recommendations—he follows through, measures what’s working, and continues to fine-tune our strategy.</p>
+          <p>My only hesitation in recommending Carlos is that he’ll get too busy and won’t have enough time for us! 😊</p>
+        </blockquote><figcaption class="who"><b>Anne Kramer</b><span>CEO, Ergo Works, Inc.</span><br><span class="rel">Client</span></figcaption></figure>
+        <figure class="card rec" aria-roledescription="slide"><blockquote><p>Carlos delivers from day one. He executes technical SEO, reviews code, and aligns with campaign goals without slowing down or making excuses. I didn't need to follow up — he keeps everything moving and proactively shares new ideas. I recommend Carlos without reservation.</p></blockquote><figcaption class="who"><b>Nick Cybela</b><span>Helping people rethink what's possible with AI</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
+        <figure class="card rec" aria-roledescription="slide"><blockquote><p>Carlos consistently demonstrates an exceptional level of professionalism, producing well-structured, responsive code with impressive speed and efficiency across WordPress, DealerOn, Dealer Inspire, and other CMSs — delivering on time, even under tight deadlines.</p></blockquote><figcaption class="who"><b>Brandi Race</b><span>Front-End Web Developer &amp; Designer · SEO Strategist</span><br><span class="rel">Senior colleague</span></figcaption></figure>
+        <figure class="card rec" aria-roledescription="slide"><blockquote><p>When Carlos first joined the team, he hit the ground running, quickly mastering our tools with minimal guidance — maintaining a fast pace on page builds (well above 50+ when the average was 45) and taking on new CMSs with ease and clean code.</p></blockquote><figcaption class="who"><b>Nat Kendall</b><span>Design Manager · Web Developer · Educator</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
+        <figure class="card rec" aria-roledescription="slide"><blockquote><p>Carlos is a highly intelligent and kind professional, always eager to learn and improve his programming skills. His commitment to excellence and readiness to support the team stand out.</p></blockquote><figcaption class="who"><b>Daniela Achury Ruiz</b><span>Social Media Manager · Digital Marketing</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
+        <figure class="card rec" aria-roledescription="slide"><blockquote><p>Carlos takes the time to understand the needs and priorities of the project. He is not afraid to ask questions and be aware of the daily activities.</p></blockquote><figcaption class="who"><b>Julian Ricaurte</b><span>SEO Design · WordPress Designer · UI Designer</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
+      </div>
+      <div class="sl-ctrl">
+        <div class="dots" id="dots" role="tablist" aria-label="Choose recommendation"></div>
+        <div class="arrows">
+          <button class="arr" id="prev" aria-label="Previous recommendation">←</button>
+          <span class="count" id="count" aria-live="polite">1 / 6</span>
+          <button class="arr" id="next" aria-label="Next recommendation">→</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -594,6 +624,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   var btn=document.getElementById('menuBtn'),links=document.getElementById('links');
   btn.addEventListener('click',function(){var o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
   links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+
+
+  /* SLIDER */
+  (function(){
+    var track=document.getElementById('recs'),slides=[].slice.call(track.children),dots=document.getElementById('dots'),
+        count=document.getElementById('count'),cur=0,timer=null,
+        noMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    slides.forEach(function(s,i){
+      var d=document.createElement('button');d.className='dot';d.setAttribute('role','tab');
+      d.setAttribute('aria-label','Recommendation '+(i+1));d.onclick=function(){go(i);restart()};dots.appendChild(d);
+    });
+    function fit(){if(window.innerWidth<=760){track.style.height=(slides[cur].offsetHeight+24)+'px'}else{track.style.height=''}}
+    window.addEventListener('resize',fit);
+    function paint(i){cur=i;fit();[].forEach.call(dots.children,function(d,j){d.setAttribute('aria-current',j===i)});count.textContent=(i+1)+' / '+slides.length}
+    function go(i){i=(i+slides.length)%slides.length;track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft-6,behavior:noMotion?'auto':'smooth'});paint(i)}
+    document.getElementById('prev').onclick=function(){go(cur-1);restart()};
+    document.getElementById('next').onclick=function(){go(cur+1);restart()};
+    track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);restart()}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);restart()}});
+    var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){
+      var x=track.scrollLeft,best=0,bd=1e9;slides.forEach(function(s,i){var d=Math.abs(s.offsetLeft-track.offsetLeft-6-x);if(d<bd){bd=d;best=i}});paint(best)},80)});
+    function start(){if(noMotion)return;stop();timer=setInterval(function(){go(cur+1)},8000)}
+    function stop(){clearInterval(timer)}
+    function restart(){stop();start()}
+    var box=document.getElementById('slider');
+    box.addEventListener('mouseenter',stop);box.addEventListener('mouseleave',start);
+    box.addEventListener('focusin',stop);box.addEventListener('focusout',start);
+    box.addEventListener('touchstart',stop,{passive:true});
+    paint(0);start();
+  })();
 
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function count(el){
