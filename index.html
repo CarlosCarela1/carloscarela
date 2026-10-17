@@ -1,833 +1,617 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carlos Carela — SEO Specialist Portfolio</title>
+<meta name="description" content="Carlos Carela — SEO Specialist in Technical SEO, Local SEO & GBP, and AI Search Optimization for ecommerce, healthcare, automotive and B2B brands.">
 <link rel="icon" type="image/png" href="favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#FFFFFF;
-    --paper-alt:#F3F5FD;
-    --ink:#0B0F19;
-    --blue:#2952E3;
-    --blue-soft:#E4E9FC;
-    --coral:#FF5A36;
-    --coral-soft:#FFE6DE;
-    --violet:#7C3AED;
-    --violet-soft:#EFE6FD;
-    --line:#E1E4EE;
-    --mute:#5B6172;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
-  h1,h2,h3,h4{font-family:'Space Grotesk', sans-serif;margin:0;letter-spacing:-0.01em;}
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;}
-  #about,#work-history,#experience,#case-studies,#recommendations,#services,#industries,#results,#tools,#ai-seo,#contact{scroll-margin-top:70px;}
+:root{
+  --bg:#FFF4E0; --ink:#121212; --paper:#FFFFFF;
+  --yellow:#FFD23F; --pink:#FF5D8F; --blue:#3D5AFE; --lime:#B6F25A; --orange:#FF7A1A; --violet:#9B6BFF;
+  --b:3px solid var(--ink); --sh:6px 6px 0 var(--ink); --sh-sm:4px 4px 0 var(--ink);
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+h1,h2,h3,.display{font-family:"Archivo Black","Arial Black",Impact,sans-serif;font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(40px,7vw,84px)}
+h3{font-size:clamp(22px,2.6vw,30px)}
+section{padding:96px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.tag{display:inline-block;border:var(--b);border-radius:999px;padding:6px 14px;background:var(--paper);box-shadow:var(--sh-sm)}
+.card{background:var(--paper);border:var(--b);border-radius:var(--r);box-shadow:var(--sh)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--ink);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:500;background:var(--paper);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;border:var(--b);border-radius:999px;padding:14px 26px;background:var(--ink);color:var(--bg);box-shadow:var(--sh-sm);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pink)}
+.btn.alt{background:var(--yellow);color:var(--ink)}
+.btn.alt:hover{box-shadow:6px 6px 0 var(--ink)}
 
-  /* ---------- NAV ---------- */
-  nav{border-bottom:1px solid var(--line);padding:16px 0;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);z-index:10;}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-  .brand{font-family:'Space Grotesk';font-weight:700;font-size:16px;}
-  .brand span{color:var(--blue);}
-  .brand-row{display:flex;align-items:center;gap:10px;}
-  .avatar{
-    width:34px;height:34px;border-radius:50%;background:var(--blue-soft);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    border:2px solid var(--blue);overflow:hidden;
-  }
-  .avatar svg{width:20px;height:20px;}
-  .nav-links{display:flex;gap:16px;flex-wrap:wrap;}
-  .nav-links a{font-family:'IBM Plex Mono';font-size:11.5px;text-decoration:none;color:var(--mute);text-transform:uppercase;letter-spacing:.04em;}
-  .nav-links a:hover{color:var(--coral);}
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:var(--b)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.logo img{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);object-fit:cover;background:var(--yellow)}
+.logo span{background:var(--lime);border:2px solid var(--ink);border-radius:8px;padding:2px 8px;font-size:13px}
+.links{display:flex;gap:4px;list-style:none}
+.links a{text-decoration:none;font-weight:500;font-size:15px;padding:8px 12px;border-radius:999px;border:2px solid transparent}
+.links a:hover{border-color:var(--ink);background:var(--yellow)}
+.links .cta a{background:var(--ink);color:var(--bg)}
+.menu{display:none;border:var(--b);background:var(--yellow);border-radius:10px;width:46px;height:42px;font-size:20px;cursor:pointer}
 
-  /* ---------- HERO ---------- */
-  header.hero{
-    padding:64px 0 44px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;
-    background:radial-gradient(circle at 85% 0%, var(--blue-soft) 0%, transparent 55%),
-               radial-gradient(circle at 0% 100%, var(--coral-soft) 0%, transparent 45%);
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--blue);margin-bottom:16px;display:inline-block;background:var(--blue-soft);
-    padding:5px 12px;border-radius:20px;
-  }
-  h1.headline{font-size:40px;font-weight:700;line-height:1.14;max-width:740px;position:relative;}
-  .gradient-text{
-    background:linear-gradient(100deg, var(--blue) 10%, var(--violet) 55%, var(--coral) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .subhead{font-size:15px;color:var(--mute);max-width:660px;margin-top:18px;}
+/* HERO */
+.hero{padding:70px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(46px,8.4vw,112px)}
+.hero h1 .hl{display:inline-block;background:var(--pink);color:var(--paper);padding:0 .14em;border:var(--b);border-radius:14px;transform:rotate(-2deg);box-shadow:var(--sh-sm)}
+.hero h1 .u{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.hero p.lead{font-size:19px;max-width:620px;margin:28px 0 32px}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.roles .chip:nth-child(1){background:var(--yellow)}
+.roles .chip:nth-child(2){background:var(--lime)}
+.roles .chip:nth-child(3){background:#9EC1FF}
+.roles .chip:nth-child(4){background:#FFB3C9}
+.hero-art{position:relative;aspect-ratio:1/1.08;max-width:440px;justify-self:center;width:100%}
+.photo{position:absolute;inset:6% 8% 10% 6%;border:var(--b);border-radius:28px;overflow:hidden;background:var(--blue);box-shadow:10px 10px 0 var(--ink);transform:rotate(2.5deg)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .fallback{position:absolute;inset:0;display:grid;place-items:center;font-family:"Archivo Black","Arial Black",sans-serif;font-size:120px;color:var(--yellow)}
+.sticker{position:absolute;border:var(--b);border-radius:16px;padding:12px 16px;box-shadow:var(--sh-sm);font-weight:700;line-height:1.1;animation:float 5s ease-in-out infinite}
+.sticker b{font-family:"Archivo Black","Arial Black",sans-serif;font-weight:400;font-size:34px;display:block}
+.s1{background:var(--yellow);left:-4%;bottom:4%;transform:rotate(-6deg)}
+.s2{background:var(--lime);right:-3%;top:2%;transform:rotate(5deg);animation-delay:-2s}
+.s3{background:var(--pink);color:#fff;right:-6%;bottom:22%;transform:rotate(-3deg);animation-delay:-3.5s}
+.star{position:absolute;left:-2%;top:-2%;width:86px;animation:spin 14s linear infinite}
+@keyframes float{50%{translate:0 -10px}}
+@keyframes spin{to{rotate:360deg}}
 
-  .signature{
-    margin-top:32px;border:1px solid var(--line);background:var(--paper);
-    box-shadow:0 8px 24px -12px rgba(41,82,227,.25);
-    border-radius:10px;padding:18px 22px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;
-  }
-  .signature svg{flex-shrink:0;}
-  .signature-text{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--mute);max-width:430px;}
-  .signature-text b{color:var(--coral);font-size:16px;}
+/* MARQUEE */
+.marquee{background:var(--ink);color:var(--bg);border-block:var(--b);overflow:hidden;padding:18px 0;transform:rotate(-1.2deg);margin:0 -20px}
+.track{display:flex;gap:42px;width:max-content;animation:scroll 32s linear infinite}
+.track span{font-family:"Archivo Black","Arial Black",sans-serif;font-size:28px;white-space:nowrap;display:flex;align-items:center;gap:42px}
+.track span::after{content:"✦";color:var(--yellow)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-  /* ---------- TOOLS TICKER ---------- */
-  .tools-band{background:var(--ink);padding:20px 0;}
-  .tools-band .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  .tools-label{font-family:'IBM Plex Mono';font-size:11px;color:#9AA3C4;letter-spacing:.06em;text-transform:uppercase;}
-  .tool-logos{display:flex;gap:20px;flex-wrap:wrap;align-items:center;}
-  .tool-logo{font-family:'Space Grotesk';font-weight:600;font-size:13.5px;color:#F1F2F8;opacity:.75;border-bottom:2px solid transparent;padding-bottom:2px;}
-  .tool-logo.acc1{border-bottom-color:var(--coral);opacity:1;}
-  .tool-logo.acc2{border-bottom-color:var(--blue);opacity:1;color:#fff;}
+/* RESULTS BENTO */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{padding:26px;border:var(--b);border-radius:var(--r);box-shadow:var(--sh);display:flex;flex-direction:column;justify-content:space-between;min-height:180px}
+.stat .n{font-family:"Archivo Black","Arial Black",sans-serif;font-size:clamp(44px,6vw,72px);line-height:1}
+.stat p{font-weight:500}
+.stat.big{grid-column:span 2;grid-row:span 2;background:var(--pink);color:#fff}
+.stat.big .n{font-size:clamp(80px,12vw,150px)}
+.stat.wide{grid-column:span 2}
+.bg-y{background:var(--yellow)}.bg-l{background:var(--lime)}.bg-b{background:var(--blue);color:#fff}.bg-o{background:var(--orange)}.bg-v{background:var(--violet);color:#fff}.bg-w{background:var(--paper)}
+.spark{width:100%;height:70px;margin:12px 0}
 
-  /* ---------- SECTIONS ---------- */
-  .section{padding:56px 0;border-bottom:1px solid var(--line);}
-  .section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px;flex-wrap:wrap;gap:8px;}
-  .section-head h2{font-size:25px;}
-  .section-count{font-family:'IBM Plex Mono';font-size:12px;color:var(--mute);background:var(--paper-alt);padding:4px 10px;border-radius:20px;}
+/* EXPERIENCE */
+.exp{display:grid;gap:26px}
+.job{display:grid;grid-template-columns:260px 1fr;overflow:hidden}
+.job-side{padding:28px;border-right:var(--b);display:flex;flex-direction:column;gap:14px}
+.job-side .co{font-family:"Archivo Black","Arial Black",sans-serif;font-size:26px;line-height:1.05}
+.job-main{padding:28px 30px}
+.job-main h3{margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.kpi{border:2px solid var(--ink);border-radius:14px;padding:14px;background:var(--bg)}
+.kpi b{font-family:"Archivo Black","Arial Black",sans-serif;font-weight:400;font-size:26px;display:block;line-height:1.1}
+.kpi span{font-size:14px}
+.now{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.now::before{content:"";width:10px;height:10px;border-radius:50%;background:#18C964;border:2px solid var(--ink);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.4)}}
 
-  /* pills */
-  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .pill{font-family:'IBM Plex Mono';font-size:12px;padding:6px 12px;border:1px solid var(--line);border-radius:20px;background:var(--paper-alt);color:var(--ink);}
-  .pill.blue{border-color:var(--blue);color:var(--blue);background:var(--blue-soft);}
-  .pill.coral{border-color:var(--coral);color:var(--coral);background:var(--coral-soft);}
-  .pill.violet{border-color:var(--violet);color:var(--violet);background:var(--violet-soft);}
+/* CASES */
+.cases{display:grid;gap:22px}
+.case{overflow:hidden}
+.case summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:center;padding:24px 28px}
+.case summary::-webkit-details-marker{display:none}
+.case .num{font-family:"Archivo Black","Arial Black",sans-serif;font-size:40px;line-height:1}
+.case .meta{font-size:14px;font-weight:500;opacity:.85}
+.case .plus{width:44px;height:44px;border:var(--b);border-radius:50%;display:grid;place-items:center;font-size:24px;font-weight:700;background:var(--paper);color:var(--ink);transition:transform .2s}
+.case[open] .plus{transform:rotate(45deg)}
+.case-body{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:0;border-top:var(--b);background:var(--paper);color:var(--ink)}
+.case-body > div{padding:26px 28px}
+.case-body > div + div{border-left:var(--b)}
+.case-body h4{font-family:"JetBrains Mono";font-size:13px;letter-spacing:.06em;margin-bottom:12px}
+.result-hl{display:inline-block;font-family:"Archivo Black","Arial Black",sans-serif;font-size:44px;line-height:1;background:var(--lime);border:var(--b);border-radius:12px;padding:6px 12px;margin-bottom:12px;box-shadow:var(--sh-sm)}
+.new{display:inline-block;background:var(--ink);color:var(--yellow);border-radius:6px;padding:2px 8px;font-size:12px;font-family:"JetBrains Mono";margin-left:8px;vertical-align:middle}
 
-  .expertise-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;}
-  .expertise-col h4{font-family:'IBM Plex Mono';font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:12px;}
-  .expertise-col .pill-row{gap:6px;}
-  .expertise-col .pill{font-size:11.5px;padding:5px 10px;}
+/* EXPERTISE */
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.col{padding:24px;border:var(--b);border-radius:var(--r);box-shadow:var(--sh)}
+.col h3{font-size:22px;margin-bottom:16px}
+.col ul{list-style:none;display:grid;gap:6px}
+.col li{padding-left:22px;position:relative;font-weight:500}
+.col li::before{content:"→";position:absolute;left:0}
 
-  /* case studies */
-  .case{margin-bottom:44px;}
-  .case:last-child{margin-bottom:0;}
-  .case-browser{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 10px 30px -18px rgba(11,15,25,.25);}
-  .browser-bar{padding:9px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;}
-  .browser-bar.c1{background:linear-gradient(90deg, var(--blue-soft), #fff);}
-  .browser-bar.c2{background:linear-gradient(90deg, var(--coral-soft), #fff);}
-  .browser-bar.c3{background:linear-gradient(90deg, var(--violet-soft), #fff);}
-  .browser-bar.c4{background:linear-gradient(90deg, var(--blue-soft), var(--coral-soft));}
-  .browser-dot{width:8px;height:8px;border-radius:50%;background:rgba(11,15,25,.15);}
-  .browser-url{font-family:'IBM Plex Mono';font-size:11px;color:var(--mute);background:#fff;border:1px solid var(--line);border-radius:20px;padding:3px 12px;flex:1;}
-  .browser-body{padding:22px 24px;}
-  .client-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
-  .client-logo{font-family:'Space Grotesk';font-weight:700;font-size:13px;border-radius:20px;padding:6px 12px;letter-spacing:.02em;}
-  .client-logo.blue{background:var(--blue-soft);color:var(--blue);}
-  .client-logo.coral{background:var(--coral-soft);color:var(--coral);}
-  .client-logo.violet{background:var(--violet-soft);color:var(--violet);}
-  .client-meta{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--mute);}
-  .case h3{font-size:19px;margin-bottom:10px;}
-  .case-block{margin-top:14px;}
-  .case-block-label{font-family:'IBM Plex Mono';font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:8px;display:block;}
-  .case-block p{font-size:13.5px;margin:0;color:var(--ink);max-width:640px;}
-  .case-result{border-top:2px solid var(--coral);padding-top:12px;margin-top:16px;}
+/* AI */
+.ai{background:var(--ink);color:var(--bg);border-block:var(--b)}
+.ai-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.ai h2 em{font-style:normal;color:var(--lime)}
+.ai .chip{background:transparent;color:var(--bg);border-color:var(--bg)}
+.engines{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.engine{border:3px solid var(--bg);border-radius:16px;padding:18px;font-family:"Archivo Black","Arial Black",sans-serif;font-size:22px;display:flex;justify-content:space-between;align-items:center}
+.engine:nth-child(1){background:var(--yellow);color:var(--ink)}
+.engine:nth-child(2){background:var(--lime);color:var(--ink)}
+.engine:nth-child(3){background:var(--pink);color:#fff}
+.engine:nth-child(4){background:var(--blue);color:#fff}
+.engine:nth-child(5){background:var(--orange);color:var(--ink);grid-column:span 2}
 
-  /* results / stats */
-  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .stat-card{background:var(--paper-alt);border:1px solid var(--line);border-radius:12px;padding:24px 20px;}
-  .stat-card:nth-child(1) .stat-num{color:var(--blue);}
-  .stat-card:nth-child(2) .stat-num{color:var(--coral);}
-  .stat-card:nth-child(3) .stat-num{color:var(--violet);}
-  .stat-card:nth-child(4) .stat-num{color:var(--violet);}
-  .stat-card:nth-child(5) .stat-num{color:var(--coral);}
-  .stat-card:nth-child(6) .stat-num{color:var(--blue);}
-  .stat-num{font-family:'Space Grotesk';font-weight:700;font-size:32px;}
-  .stat-label{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--mute);margin-top:4px;}
+/* RECS */
+.recs{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 24px}
+.rec{flex:0 0 min(380px,85%);scroll-snap-align:start;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.rec:nth-child(5n+1){background:var(--yellow)}
+.rec:nth-child(5n+2){background:#9EC1FF}
+.rec:nth-child(5n+3){background:var(--lime)}
+.rec:nth-child(5n+4){background:#FFB3C9}
+.rec:nth-child(5n+5){background:#FFC58F}
+.rec q{font-size:18px;font-weight:500;quotes:"“" "”"}
+.rec q::before{content:"“";display:block;font-family:"Archivo Black","Arial Black",sans-serif;font-size:70px;line-height:.6;margin-bottom:12px}
+.rec .who b{display:block;font-size:18px}
+.rec .who span{font-size:14px}
+.rec .rel{display:inline-block;margin-top:8px;background:var(--ink);color:var(--bg);border-radius:6px;padding:2px 8px;font-size:12px;font-family:"JetBrains Mono"}
 
-  /* AI SEO */
-  .ai-platforms{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
-  .ai-platform{font-family:'IBM Plex Mono';font-size:12px;background:var(--ink);color:#F1F2F8;padding:7px 14px;border-radius:20px;}
+/* SERVICES / INDUSTRIES */
+.two{display:grid;grid-template-columns:1.6fr 1fr;gap:22px}
+.panel{padding:30px}
+.panel h3{margin-bottom:20px;display:flex;justify-content:space-between;align-items:baseline}
+.panel h3 small{font-family:"JetBrains Mono";font-size:13px}
+.services .chip:nth-child(4n+1):hover{background:var(--yellow)}
+.services .chip:nth-child(4n+2):hover{background:var(--lime)}
+.services .chip:nth-child(4n+3):hover{background:#FFB3C9}
+.services .chip:nth-child(4n+4):hover{background:#9EC1FF}
+.industries .chip{font-size:16px;padding:8px 16px}
 
-  /* workflow */
-  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:0;}
-  .flow-step{font-family:'IBM Plex Mono';font-size:12px;background:var(--paper-alt);border:1px solid var(--line);border-radius:20px;padding:7px 14px;white-space:nowrap;}
-  .flow-arrow{color:var(--blue);font-size:14px;padding:0 6px;}
+/* WORKFLOW */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{border:var(--b);border-radius:16px;padding:20px;background:var(--paper);box-shadow:var(--sh-sm);font-weight:700;font-size:19px;display:flex;gap:14px;align-items:center;counter-increment:s}
+.step::before{content:counter(s,decimal-leading-zero);font-family:"Archivo Black","Arial Black",sans-serif;font-weight:400;font-size:20px;background:var(--ink);color:var(--yellow);border-radius:10px;padding:6px 9px}
+.step:nth-child(3n+2){background:var(--yellow)}
+.step:nth-child(3n){background:var(--lime)}
 
-  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  .tools-col h4{font-family:'IBM Plex Mono';font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:12px;}
+/* TOOLS */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tools .col:nth-child(1){grid-row:span 2;background:var(--paper)}
+.tools .col:nth-child(2){background:#9EC1FF}
+.tools .col:nth-child(3){background:var(--yellow)}
+.tools .col:nth-child(4){background:#FFB3C9}
+.tools .col:nth-child(5){background:var(--lime)}
 
-  /* testimonials */
-  .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  .testi-card{border:1px solid var(--line);border-radius:12px;padding:22px 22px 18px;background:var(--paper-alt);}
-  .testi-quote-mark{font-family:'Space Grotesk';font-size:32px;font-weight:700;line-height:1;margin-bottom:6px;display:block;}
-  .testi-card.q1 .testi-quote-mark{color:var(--blue);}
-  .testi-card.q2 .testi-quote-mark{color:var(--coral);}
-  .testi-card.q3 .testi-quote-mark{color:var(--violet);}
-  .testi-text{font-size:13.5px;color:var(--ink);line-height:1.6;margin:0 0 16px;}
-  .testi-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
-  .testi-person{font-family:'Space Grotesk';font-weight:600;font-size:13.5px;}
-  .testi-role{font-family:'IBM Plex Mono';font-size:11px;color:var(--mute);display:block;margin-top:2px;}
-  .testi-badge{font-family:'IBM Plex Mono';font-size:10.5px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:3px 9px;color:var(--mute);white-space:nowrap;}
+/* CONTACT */
+.contact{background:var(--yellow);border-top:var(--b);text-align:center;padding:110px 0}
+.contact h2{font-size:clamp(46px,9vw,120px);margin-bottom:26px}
+.contact h2 span{color:var(--pink);-webkit-text-stroke:3px var(--ink)}
+.contact p{font-size:19px;margin-bottom:34px}
+footer{background:var(--ink);color:var(--bg);padding:22px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
-  /* footer */
-  footer{padding:56px 0 64px;}
-  .cta-box{
-    background:linear-gradient(120deg, #131A2E 0%, #1B2450 55%, #3A2166 100%);
-    border-radius:16px;padding:40px 34px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
-  }
-  .cta-box h3{color:#fff;font-size:23px;margin-bottom:6px;}
-  .cta-box p{color:#B7BFE0;font-size:13.5px;margin:0;font-family:'IBM Plex Mono';}
-  .cta-btn{
-    background:linear-gradient(100deg, var(--coral), var(--blue));
-    color:#fff;font-family:'IBM Plex Mono';font-weight:500;font-size:13px;
-    padding:12px 22px;border-radius:24px;text-decoration:none;white-space:nowrap;
-  }
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
 
-  @media (max-width:820px){
-    .expertise-grid{grid-template-columns:1fr 1fr !important;}
-  }
-  @media (max-width:640px){
-    h1.headline{font-size:29px;}
-    .expertise-grid{grid-template-columns:1fr !important;}
-    .stat-grid{grid-template-columns:1fr 1fr;}
-    .tools-grid{grid-template-columns:1fr;}
-    .testi-grid{grid-template-columns:1fr;}
-    .nav-links{display:none;}
-  }
+@media (max-width:980px){
+  .links{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:var(--b);padding:12px 20px 20px}
+  .links.open{display:flex}
+  .menu{display:block}
+  .hero-grid,.ai-grid,.two{grid-template-columns:1fr}
+  .hero-art{max-width:360px}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .job{grid-template-columns:1fr}
+  .job-side{border-right:0;border-bottom:var(--b)}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .case-body{grid-template-columns:1fr}
+  .case-body > div + div{border-left:0;border-top:var(--b)}
+  .tools{grid-template-columns:repeat(2,1fr)}
+  .tools .col:nth-child(1){grid-row:auto;grid-column:span 2}
+  .flow{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  section{padding:70px 0}
+  .bento,.exp-grid,.tools,.flow{grid-template-columns:1fr}
+  .stat.big,.stat.wide,.tools .col:nth-child(1){grid-column:auto}
+  .case summary{grid-template-columns:1fr auto;padding:20px}
+  .case .num{display:none}
+  .engines{grid-template-columns:1fr}
+  .engine:nth-child(5){grid-column:auto}
+  .sticker b{font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <div class="brand-row">
-      <div class="avatar">
-        <img src="Carlos%20Headshot.png" alt="Carlos Carela" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' style=\'width:20px;height:20px\'><circle cx=\'12\' cy=\'8\' r=\'4\' fill=\'%232952E3\'/><path d=\'M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7\' stroke=\'%232952E3\' stroke-width=\'1.8\' stroke-linecap=\'round\'/></svg>';">
-      </div>
-      <div class="brand">Carlos Carela <span>/ SEO Specialist</span></div>
-    </div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#work-history">Experience</a>
-      <a href="#experience">Expertise</a>
-      <a href="#case-studies">Case Studies</a>
-      <a href="#recommendations">Recommendations</a>
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#results">Results</a>
-      <a href="#tools">Tools</a>
-      <a href="#ai-seo">AI SEO</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top"><img src="Carlos%20Headshot.png" alt="Carlos Carela" onerror="this.style.visibility='hidden'">Carlos Carela <span>SEO Specialist</span></a>
+    <button class="menu" aria-label="Open menu" aria-expanded="false" id="menuBtn">☰</button>
+    <ul class="links" id="links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#ai-seo">AI SEO</a></li>
+      <li><a href="#recommendations">Reviews</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li class="cta"><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
 
-<header class="hero" id="about">
-  <div class="wrap">
-    <span class="eyebrow">About Me</span>
-    <h1 class="headline">SEO Specialist | Technical SEO | Local SEO & GBP | <span class="gradient-text">AI Search Optimization</span></h1>
-    <p class="subhead">I'm an SEO Specialist with experience helping ecommerce brands, local businesses, healthcare providers, automotive dealerships, and B2B companies improve their organic and local visibility through technical SEO, on-page optimization, Google Business Profile management, content strategy, and AI search optimization. Over the past several years I've worked across Shopify, WordPress, Webflow, Squarespace, and HubSpot websites, collaborating with developers, designers, content writers, and marketing teams to build scalable SEO systems rather than one-time fixes.</p>
-
-    <div class="signature">
-      <svg width="140" height="48" viewBox="0 0 140 48" fill="none">
-        <polyline points="0,42 20,38 40,32 60,34 80,20 100,22 120,9 140,3" stroke="#FF5A36" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="140" cy="3" r="4" fill="#2952E3"/>
-      </svg>
-      <div class="signature-text">
-        <b>400% YoY</b> organic traffic growth contribution on an orthopedic ecommerce catalog — through content clusters, product page optimization, and internal linking strategy.
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <span class="tag mono">👋 About me</span>
+      <h1 style="margin-top:26px">SEO that <span class="hl">grows</span> <span class="u">revenue</span>, not just rankings.</h1>
+      <p class="lead">I'm an SEO Specialist helping ecommerce brands, local businesses, healthcare providers, automotive dealerships, and B2B companies improve their organic and local visibility. I've worked across Shopify, WordPress, Webflow, Squarespace, and HubSpot — collaborating with developers, designers, writers, and marketing teams to build <strong>scalable SEO systems rather than one-time fixes.</strong></p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn" href="#contact">Let's talk →</a>
+        <a class="btn alt" href="#cases">See case studies</a>
       </div>
+      <div class="roles">
+        <span class="chip">Technical SEO</span>
+        <span class="chip">Local SEO &amp; GBP</span>
+        <span class="chip">AI Search Optimization</span>
+        <span class="chip">Content &amp; AEO</span>
+      </div>
+    </div>
+    <div class="hero-art rv">
+      <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 0l11 35 39 0-31 22 12 38-31-23-31 23 12-38L0 35h39z" fill="#B6F25A" stroke="#121212" stroke-width="4"/></svg>
+      <div class="photo">
+        <div class="fallback">CC</div>
+        <img src="Carlos%20Headshot.png" alt="Portrait of Carlos Carela" onerror="this.remove()">
+      </div>
+      <div class="sticker s1"><b>+400%</b>YoY organic</div>
+      <div class="sticker s2"><b>+31%</b>store sales</div>
+      <div class="sticker s3"><b>+600%</b>ChatGPT sales</div>
     </div>
   </div>
 </header>
 
-<div class="tools-band">
-  <div class="wrap">
-    <span class="tools-label">Core tools</span>
-    <div class="tool-logos">
-      <span class="tool-logo acc1">Semrush</span>
-      <span class="tool-logo">Ahrefs</span>
-      <span class="tool-logo">Screaming Frog</span>
-      <span class="tool-logo acc2">Search Console</span>
-      <span class="tool-logo acc2">GA4</span>
-      <span class="tool-logo">SimilarWeb</span>
-    </div>
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Semrush</span><span>Ahrefs</span><span>Screaming Frog</span><span>Search Console</span><span>GA4</span><span>SimilarWeb</span><span>Shopify</span><span>Webflow</span><span>Schema Markup</span><span>AEO</span>
+    <span>Semrush</span><span>Ahrefs</span><span>Screaming Frog</span><span>Search Console</span><span>GA4</span><span>SimilarWeb</span><span>Shopify</span><span>Webflow</span><span>Schema Markup</span><span>AEO</span>
   </div>
 </div>
 
-<section class="section" id="work-history">
+<section id="results">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Professional Experience</h2>
-      <span class="section-count mono">Healthcare Marketing / Physical Therapy</span>
+    <div class="sec-head rv">
+      <h2>Results at<br>a glance.</h2>
+      <span class="tag mono">Numbers that moved</span>
     </div>
-
-    <div class="case-browser">
-      <div class="browser-bar c1">
-        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-        <div class="browser-url">thepatchsystems.com — SEO Website Production Specialist · Full-Time, Remote</div>
+    <div class="bento">
+      <div class="stat big rv">
+        <span class="mono">Orthopedic ecommerce catalog</span>
+        <div>
+          <div class="n"><span data-count="400">400</span>%</div>
+          <p style="font-size:20px">YoY organic traffic growth contribution — through content clusters, product page optimization, and internal linking.</p>
+        </div>
       </div>
-      <div class="browser-body">
-        <div class="client-row">
-          <span class="client-logo blue">THE PATCH SYSTEMS</span>
-          <span class="client-meta">SEO Website Production Specialist · Full-Time · Remote</span>
-        </div>
-        <h3>Scaling SEO Website Production for Healthcare Businesses</h3>
-        <p style="font-size:13.5px;color:var(--mute);max-width:660px;margin:0;">Built, optimized, and launched SEO-focused Webflow websites for physical therapy clinics across the U.S., working alongside designers, developers, and content strategists on a standardized production system.</p>
+      <div class="stat wide bg-l rv">
+        <span class="mono">Ask Ergo Works · AI search</span>
+        <svg class="spark" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,62 50,60 100,61 150,56 190,40 230,24 300,6" fill="none" stroke="#121212" stroke-width="4" stroke-linejoin="round"/><circle cx="300" cy="6" r="6" fill="#FF5D8F" stroke="#121212" stroke-width="3"/></svg>
+        <div><div class="n">+<span data-count="600">600</span>%</div><p>Average increase in sales referred by ChatGPT after optimizing the pages for AI search</p></div>
+      </div>
+      <div class="stat bg-y rv"><div class="n"><span data-count="1000">1,000</span>+</div><p>Landing pages optimized</p></div>
+      <div class="stat bg-b rv"><div class="n"><span data-count="5000">5,000</span>+</div><p>Products optimized</p></div>
+      <div class="stat bg-w rv"><div class="n"><span data-count="30">30</span>+</div><p>Businesses supported</p></div>
+      <div class="stat bg-o rv"><div class="n"><span data-count="10">10</span>+</div><p>Industries served</p></div>
+      <div class="stat wide bg-v rv"><div class="n"><span data-count="6">6</span>+</div><p>CMS platforms — Shopify, WordPress, Webflow, HubSpot, Squarespace, Wix</p></div>
+      <div class="stat wide bg-y rv">
+        <span class="mono">Ask Ergo Works · AEO</span>
+        <div><div class="n"><span data-count="1000">1,000</span>+</div><p>AI citations for a single article that was only weeks old — and not yet indexed by Google</p></div>
+      </div>
+      <div class="stat wide bg-w rv">
+        <span class="mono">Ask Ergo Works · Shopify</span>
+        <div><div class="n">+<span data-count="31">31</span>%</div><p>Online Store sales, Jul–Sep 2026 vs. Jan–Jun average</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="pill-row" style="margin-top:14px;">
-          <span class="pill coral">1,000+ landing pages</span>
-          <span class="pill coral">13–15 pages/day</span>
-          <span class="pill coral">20 healthcare clients</span>
-          <span class="pill coral">Dozens of full Webflow builds</span>
-        </div>
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Professional<br>experience.</h2>
+      <span class="tag mono">Remote · U.S. clients</span>
+    </div>
+    <div class="exp">
 
-        <div class="case-block">
-          <span class="case-block-label">Process</span>
-          <div class="pill-row">
-            <span class="pill">Technical SEO Audits</span>
-            <span class="pill">Webflow Site Architecture</span>
-            <span class="pill">Webflow CMS Management</span>
-            <span class="pill">Internal Linking</span>
-            <span class="pill">Metadata & Heading Validation</span>
-            <span class="pill">Pre-Launch QA</span>
-            <span class="pill violet">Google Business Profile Audits</span>
-            <span class="pill violet">Google Maps Optimization</span>
-            <span class="pill violet">NAP Consistency Reviews</span>
-            <span class="pill violet">Local Keyword Research</span>
+      <article class="card job rv">
+        <div class="job-side bg-l">
+          <span class="now">Current</span>
+          <div class="co">Ask Ergo Works</div>
+          <span class="mono">askergoworks.com</span>
+          <span style="font-weight:500">B2B Ergonomic Products · Shopify<br>SEO Consultant · Remote</span>
+        </div>
+        <div class="job-main">
+          <h3>Turning a Shopify blog into a source AI search engines cite</h3>
+          <p>Lead SEO for a Palo Alto ergonomic products retailer. Rebuilt 130+ pages into a content cluster architecture, resolved keyword cannibalization by consolidating competing pages into the strongest URLs, and re-engineered every article to be understood and cited by AI — while fixing indexation and orphan pages across the site.</p>
+          <div class="kpis">
+            <div class="kpi" style="background:var(--lime)"><b>+600%</b><span>avg. ChatGPT-referred sales</span></div>
+            <div class="kpi" style="background:var(--yellow)"><b>1,000+</b><span>AI citations on one unindexed article</span></div>
+            <div class="kpi"><b>+31%</b><span>Online Store sales (Q3 vs. H1 avg)</span></div>
+            <div class="kpi"><b>130+</b><span>pages in a content cluster system</span></div>
+          </div>
+          <div class="chips">
+            <span class="chip">Content Clusters</span><span class="chip">Keyword Cannibalization</span><span class="chip">Content Pruning &amp; 301s</span><span class="chip">AEO / GEO</span><span class="chip">Answer-First Content</span><span class="chip">FAQs &amp; Key Takeaways</span><span class="chip">Author Bios · E-E-A-T</span><span class="chip">Indexation (GSC)</span><span class="chip">Orphan Page Fixes</span><span class="chip">Technical SEO Audit</span>
           </div>
         </div>
+      </article>
 
-        <div class="case-block case-result">
-          <span class="case-block-label">Result</span>
-          <p>Contributed to the production and optimization of <b style="color:var(--blue);">more than 1,000 SEO landing pages</b> at a sustained pace of 13–15 per day, plus dozens of full websites built from scratch in Webflow with SEO-first site structure. Also audited and optimized Google Business Profiles across clinic locations — aligning NAP data, Maps visibility, and local keyword targeting with on-site SEO — helping physical therapy practices, including The Physical Therapy Project, Ready Physio, and Elite Performance & Rehab, improve both organic and local search visibility.</p>
+      <article class="card job rv">
+        <div class="job-side bg-y">
+          <span class="mono">Full-Time · Remote</span>
+          <div class="co">The Patch Systems</div>
+          <span class="mono">thepatchsystems.com</span>
+          <span style="font-weight:500">Healthcare Marketing / Physical Therapy<br>SEO Website Production Specialist</span>
+        </div>
+        <div class="job-main">
+          <h3>Scaling SEO website production for healthcare businesses</h3>
+          <p>Built, optimized, and launched SEO-focused Webflow websites for physical therapy clinics across the U.S. — plus Google Business Profile audits aligning NAP data, Maps visibility, and local keyword targeting with on-site SEO for practices like The Physical Therapy Project, Ready Physio, and Elite Performance &amp; Rehab.</p>
+          <div class="kpis">
+            <div class="kpi" style="background:var(--yellow)"><b>1,000+</b><span>landing pages</span></div>
+            <div class="kpi"><b>13–15</b><span>pages per day</span></div>
+            <div class="kpi"><b>20</b><span>healthcare clients</span></div>
+            <div class="kpi"><b>Dozens</b><span>full Webflow builds</span></div>
+          </div>
+          <div class="chips">
+            <span class="chip">Technical SEO Audits</span><span class="chip">Webflow Site Architecture</span><span class="chip">Webflow CMS</span><span class="chip">Internal Linking</span><span class="chip">Metadata &amp; Headings</span><span class="chip">Pre-Launch QA</span><span class="chip">GBP Audits</span><span class="chip">Google Maps</span><span class="chip">NAP Consistency</span><span class="chip">Local Keyword Research</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="cases" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Case<br>studies.</h2>
+      <span class="tag mono">05 selected · tap to expand</span>
+    </div>
+    <div class="cases">
+
+      <details class="card case rv" open>
+        <summary class="bg-l">
+          <span class="num">01</span>
+          <div><span class="mono">askergoworks.com</span><h3>From invisible blog to AI-cited authority <span class="new">UPDATED</span></h3><div class="meta">Ask Ergo Works · B2B Ergonomic Products · SEO Consultant</div></div>
+          <span class="plus">+</span>
+        </summary>
+        <div class="case-body">
+          <div><h4>PROBLEM</h4><p>An outdated Shopify store with technical SEO issues and a 130+ post blog that had no structure: overlapping articles competing for the same keywords, pages Google hadn't indexed, orphan pages with no internal links, and content AI engines couldn't easily extract or trust.</p></div>
+          <div><h4>PROCESS</h4><div class="chips">
+            <span class="chip">Content Cluster Architecture</span><span class="chip">Keyword Cannibalization Audit</span><span class="chip">Content Pruning</span><span class="chip">301s to Top-Traffic Pages</span><span class="chip">Answer-First Paragraphs</span><span class="chip">Key Takeaways</span><span class="chip">FAQs + FAQPage Schema</span><span class="chip">Cited Sources</span><span class="chip">Author Attribution &amp; Bios</span><span class="chip">E-E-A-T</span><span class="chip">GSC Indexing Requests</span><span class="chip">Orphan Page Fixes</span><span class="chip">Internal Linking</span><span class="chip">Technical SEO Audit</span>
+          </div></div>
+          <div><h4>RESULT</h4>
+            <span class="result-hl">+600%</span>
+            <p><strong>ChatGPT-referred sales grew 600% on average</strong> after the pages were optimized for AI search. One article earned <strong>1,000+ AI citations</strong> just weeks after publishing — before Google had even indexed it. Online Store sales rose ~31% in Jul–Sep 2026 vs. the Jan–Jun average.</p>
+            <p style="margin-top:10px">Every article now leads with a short answer in its second paragraph so AI can understand it in one pass, backed by key takeaways, FAQs, cited sources, and a named author with a bio.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="card case rv">
+        <summary class="bg-y">
+          <span class="num">02</span>
+          <div><span class="mono">backsupportsystems.com</span><h3>Growing organic traffic through content clusters</h3><div class="meta">Back Support Systems · Orthopedic Ecommerce · SEO Specialist</div></div>
+          <span class="plus">+</span>
+        </summary>
+        <div class="case-body">
+          <div><h4>PROBLEM</h4><p>Large ecommerce catalog with inconsistent optimization, limited internal linking, untapped content opportunities, and a Google Business Profile that wasn't pulling its weight for local and branded search.</p></div>
+          <div><h4>PROCESS</h4><div class="chips">
+            <span class="chip">Content Cluster Planning</span><span class="chip">Product Page Optimization</span><span class="chip">Keyword Mapping</span><span class="chip">Internal Linking Strategy</span><span class="chip">Metadata Optimization</span><span class="chip">SEO Content Development</span><span class="chip">Category Optimization</span><span class="chip">GBP Audit</span><span class="chip">GBP Optimization</span><span class="chip">NAP Consistency</span><span class="chip">Local Keyword Research</span>
+          </div></div>
+          <div><h4>RESULT</h4><span class="result-hl" style="background:var(--yellow)">+400% YoY</span><p>Year-over-year increase in organic traffic contribution, alongside improved architecture, topical authority, and search visibility — with the GBP aligned to the site's SEO to strengthen branded and local presence.</p></div>
+        </div>
+      </details>
+
+      <details class="card case rv">
+        <summary class="bg-b">
+          <span class="num">03</span>
+          <div><span class="mono">thepatchsystems.com</span><h3>Webflow SEO production line for healthcare</h3><div class="meta">The Patch Systems · Physical Therapy · SEO Website Production Specialist</div></div>
+          <span class="plus">+</span>
+        </summary>
+        <div class="case-body">
+          <div><h4>PROBLEM</h4><p>Healthcare providers required highly optimized, location-specific websites produced efficiently while maintaining consistent SEO quality across every project.</p></div>
+          <div><h4>PROCESS</h4><div class="chips">
+            <span class="chip">Scalable Webflow Templates</span><span class="chip">Standardized Internal Linking</span><span class="chip">Metadata &amp; Heading Validation</span><span class="chip">Pre-Launch QA</span><span class="chip">Cross-Team Collaboration</span><span class="chip">GBP Audits</span><span class="chip">Local SEO Strategy</span><span class="chip">Location Landing Pages</span>
+          </div></div>
+          <div><h4>RESULT</h4><span class="result-hl" style="background:#9EC1FF">1,000+ pages</span><p>Produced and optimized 1,000+ SEO landing pages at 13–15 per day, helping physical therapy practices improve visibility — with GBP audits and location pages aligned to each clinic's on-site SEO.</p></div>
+        </div>
+      </details>
+
+      <details class="card case rv">
+        <summary class="bg-o">
+          <span class="num">04</span>
+          <div><span class="mono">streamcompanies.com</span><h3>Scaling SEO content across automotive brands</h3><div class="meta">Stream Companies · Automotive · SEO Content Specialist</div></div>
+          <span class="plus">+</span>
+        </summary>
+        <div class="case-body">
+          <div><h4>PROBLEM</h4><p>Dealerships required hundreds of localized landing pages while maintaining unique content, strong internal linking, and conversion-focused messaging.</p></div>
+          <div><h4>PROCESS</h4><div class="chips">
+            <span class="chip">Keyword Research</span><span class="chip">Local SEO</span><span class="chip">Competitor Analysis</span><span class="chip">Inventory Page Optimization</span><span class="chip">Service Page Development</span><span class="chip">Internal Linking</span><span class="chip">HTML Optimization</span><span class="chip">Content Strategy</span><span class="chip">Conversion Optimization</span><span class="chip">Custom GPT for Templates</span>
+          </div></div>
+          <div><h4>RESULT</h4><span class="result-hl" style="background:var(--orange)">Hundreds</span><p>Produced hundreds of SEO landing pages for major automotive brands. Built a custom GPT that drops copywriters' content into reusable page templates, speeding up build-and-publish at scale.</p></div>
+        </div>
+      </details>
+
+      <details class="card case rv">
+        <summary class="bg-v">
+          <span class="num">05</span>
+          <div><span class="mono">reunionmarketing.com</span><h3>SEO landing pages across multiple industries</h3><div class="meta">Reunion Marketing · Digital Marketing Agency · SEO Specialist</div></div>
+          <span class="plus">+</span>
+        </summary>
+        <div class="case-body">
+          <div><h4>PROBLEM</h4><p>Agency clients required scalable, SEO-optimized landing pages across multiple industries and locations without duplicate content or cannibalization issues.</p></div>
+          <div><h4>PROCESS</h4><div class="chips">
+            <span class="chip">Keyword Research</span><span class="chip">Search Intent Analysis</span><span class="chip">Competitor Research</span><span class="chip">Landing Page Architecture</span><span class="chip">Metadata Optimization</span><span class="chip">Internal Linking</span><span class="chip">URL Structure</span><span class="chip">Local Entity Optimization</span><span class="chip">Conversion Copywriting</span>
+          </div></div>
+          <div><h4>RESULT</h4><span class="result-hl" style="background:#FFB3C9">Multi-industry</span><p>Produced scalable landing pages for multiple industries while maintaining SEO best practices, unique content, and consistent quality across projects.</p></div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section id="expertise" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Core<br>expertise.</h2>
+      <span class="tag mono">technical · growth · local · platforms</span>
+    </div>
+    <div class="exp-grid">
+      <div class="col bg-y rv"><h3>Technical SEO</h3><ul><li>Technical SEO Audits</li><li>Crawling &amp; Indexability</li><li>Robots.txt</li><li>XML Sitemaps</li><li>Core Web Vitals</li><li>Canonical Tags</li><li>Schema Markup</li><li>Structured Data</li><li>Internal Linking</li><li>Redirect Management</li><li>Duplicate Content</li><li>Site Architecture</li></ul></div>
+      <div class="col bg-l rv"><h3>Growth SEO</h3><ul><li>Keyword Research</li><li>Search Intent Analysis</li><li>Competitor Research</li><li>Content Strategy</li><li>Content Clusters</li><li>Topical Authority</li><li>Entity SEO</li><li>Landing Page Optimization</li><li>Metadata Optimization</li><li>SEO Copywriting</li></ul></div>
+      <div class="col rv" style="background:#FFB3C9"><h3>Local SEO &amp; GBP</h3><ul><li>GBP Audits &amp; Optimization</li><li>Google Maps Optimization</li><li>Business Descriptions</li><li>Products &amp; Services</li><li>NAP Consistency Reviews</li><li>Local Keyword Research</li><li>Competitor GBP Analysis</li><li>Location Landing Pages</li><li>Google Posts Strategy</li><li>Citation Reviews</li><li>GBP Performance Analysis</li></ul></div>
+      <div class="col rv" style="background:#9EC1FF"><h3>Platforms</h3><ul><li>Shopify</li><li>WordPress</li><li>Webflow</li><li>HubSpot</li><li>Squarespace</li><li>Wix</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="ai" id="ai-seo">
+  <div class="wrap ai-grid">
+    <div class="rv">
+      <span class="tag mono" style="color:var(--ink)">AEO / AI Overviews</span>
+      <h2 style="margin:24px 0">Preparing websites for <em>AI search.</em></h2>
+      <p style="font-size:19px;margin-bottom:26px">Search now extends beyond traditional engines. I optimize websites for visibility across AI-powered platforms through semantic optimization, entity SEO, structured data, and content architecture.</p>
+      <p style="font-size:17px;margin-bottom:26px;border-left:4px solid var(--lime);padding-left:16px"><strong style="color:var(--lime)">Proof:</strong> answer-first articles with key takeaways, FAQs, cited sources and author bios drove 1,000+ AI citations on a single article and a 600% average lift in ChatGPT-referred sales for an ecommerce client.</p>
+      <div class="chips">
+        <span class="chip">Entity SEO</span><span class="chip">E-E-A-T Optimization</span><span class="chip">Semantic Search</span><span class="chip">Structured Data</span><span class="chip">FAQ Optimization</span><span class="chip">Natural Language Optimization</span><span class="chip">Content Architecture</span><span class="chip">Internal Linking</span><span class="chip">AI Overview Optimization</span><span class="chip">Answer Engine Optimization</span>
+      </div>
+    </div>
+    <div class="engines rv">
+      <div class="engine">Google AI Overviews <span>↗</span></div>
+      <div class="engine">ChatGPT <span>↗</span></div>
+      <div class="engine">Claude <span>↗</span></div>
+      <div class="engine">Gemini <span>↗</span></div>
+      <div class="engine">Perplexity <span>↗</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="recommendations">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What people<br>say.</h2>
+      <span class="tag mono">from LinkedIn · scroll →</span>
+    </div>
+    <div class="recs">
+      <figure class="card rec"><q>Carlos delivers from day one. He executes technical SEO, reviews code, and aligns with campaign goals without slowing down or making excuses. I didn't need to follow up — he keeps everything moving and proactively shares new ideas. I recommend Carlos without reservation.</q><figcaption class="who"><b>Nick Cybela</b><span>Helping people rethink what's possible with AI</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
+      <figure class="card rec"><q>Carlos consistently demonstrates an exceptional level of professionalism, producing well-structured, responsive code with impressive speed and efficiency across WordPress, DealerOn, Dealer Inspire, and other CMSs — delivering on time, even under tight deadlines.</q><figcaption class="who"><b>Brandi Race</b><span>Front-End Web Developer &amp; Designer · SEO Strategist</span><br><span class="rel">Senior colleague</span></figcaption></figure>
+      <figure class="card rec"><q>When Carlos first joined the team, he hit the ground running, quickly mastering our tools with minimal guidance — maintaining a fast pace on page builds (well above 50+ when the average was 45) and taking on new CMSs with ease and clean code.</q><figcaption class="who"><b>Nat Kendall</b><span>Design Manager · Web Developer · Educator</span><br><span class="rel">Managed Carlos directly</span></figcaption></figure>
+      <figure class="card rec"><q>Carlos is a highly intelligent and kind professional, always eager to learn and improve his programming skills. His commitment to excellence and readiness to support the team stand out.</q><figcaption class="who"><b>Daniela Achury Ruiz</b><span>Social Media Manager · Digital Marketing</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
+      <figure class="card rec"><q>Carlos takes the time to understand the needs and priorities of the project. He is not afraid to ask questions and be aware of the daily activities.</q><figcaption class="who"><b>Julian Ricaurte</b><span>SEO Design · WordPress Designer · UI Designer</span><br><span class="rel">Worked on the same team</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Services &amp;<br>industries.</h2>
+    </div>
+    <div class="two">
+      <div class="card panel rv">
+        <h3>Services <small>25 offerings</small></h3>
+        <div class="chips services">
+          <span class="chip">Technical SEO Audits</span><span class="chip">Website Audits</span><span class="chip">Keyword Research</span><span class="chip">Competitor Analysis</span><span class="chip">Content Strategy</span><span class="chip">Content Clusters</span><span class="chip">Landing Page Optimization</span><span class="chip">Internal Linking</span><span class="chip">Google Business Profile Optimization</span><span class="chip">Local SEO Strategy</span><span class="chip">Google Maps Optimization</span><span class="chip">NAP Consistency Reviews</span><span class="chip">Local Keyword Research</span><span class="chip">Google Posts Strategy</span><span class="chip">Schema Markup</span><span class="chip">Structured Data</span><span class="chip">Core Web Vitals Optimization</span><span class="chip">Entity SEO</span><span class="chip">Answer Engine Optimization (AEO)</span><span class="chip">AI Search Optimization</span><span class="chip">Metadata Optimization</span><span class="chip">SEO Copywriting</span><span class="chip">Information Architecture</span><span class="chip">Site Migrations</span><span class="chip">Conversion Rate Optimization (CRO)</span>
+        </div>
+      </div>
+      <div class="card panel bg-y rv">
+        <h3>Industries <small>10+ served</small></h3>
+        <div class="chips industries">
+          <span class="chip">Healthcare</span><span class="chip">Physical Therapy</span><span class="chip">Medical Devices</span><span class="chip">Ergonomics</span><span class="chip">Automotive</span><span class="chip">Ecommerce</span><span class="chip">Beauty</span><span class="chip">Professional Services</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="experience">
+<section id="workflow" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Core Expertise</h2>
-      <span class="section-count mono">technical · growth · local & gbp · platforms</span>
+    <div class="sec-head rv">
+      <h2>How I<br>work.</h2>
+      <span class="tag mono">The workflow</span>
     </div>
-    <div class="expertise-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;">
-      <div class="expertise-col">
-        <h4>Technical SEO</h4>
-        <div class="pill-row">
-          <span class="pill blue">Technical SEO Audits</span>
-          <span class="pill blue">Crawling & Indexability</span>
-          <span class="pill blue">Robots.txt</span>
-          <span class="pill blue">XML Sitemaps</span>
-          <span class="pill blue">Core Web Vitals</span>
-          <span class="pill blue">Canonical Tags</span>
-          <span class="pill blue">Schema Markup</span>
-          <span class="pill blue">Structured Data</span>
-          <span class="pill blue">Internal Linking</span>
-          <span class="pill blue">Redirect Management</span>
-          <span class="pill blue">Duplicate Content</span>
-          <span class="pill blue">Site Architecture</span>
-        </div>
-      </div>
-      <div class="expertise-col">
-        <h4>Growth SEO</h4>
-        <div class="pill-row">
-          <span class="pill coral">Keyword Research</span>
-          <span class="pill coral">Search Intent Analysis</span>
-          <span class="pill coral">Competitor Research</span>
-          <span class="pill coral">Content Strategy</span>
-          <span class="pill coral">Content Clusters</span>
-          <span class="pill coral">Topical Authority</span>
-          <span class="pill coral">Entity SEO</span>
-          <span class="pill coral">Landing Page Optimization</span>
-          <span class="pill coral">Metadata Optimization</span>
-          <span class="pill coral">SEO Copywriting</span>
-        </div>
-      </div>
-      <div class="expertise-col">
-        <h4>Local SEO & GBP</h4>
-        <div class="pill-row">
-          <span class="pill">Google Business Profile Audits</span>
-          <span class="pill">GBP Optimization</span>
-          <span class="pill">Google Maps Optimization</span>
-          <span class="pill">Business Description Optimization</span>
-          <span class="pill">Products & Services Optimization</span>
-          <span class="pill">NAP Consistency Reviews</span>
-          <span class="pill">Local Keyword Research</span>
-          <span class="pill">Competitor GBP Analysis</span>
-          <span class="pill">Location Landing Pages</span>
-          <span class="pill">Google Posts Strategy</span>
-          <span class="pill">Citation Reviews</span>
-          <span class="pill">GBP Performance Analysis</span>
-        </div>
-      </div>
-      <div class="expertise-col">
-        <h4>Platforms</h4>
-        <div class="pill-row">
-          <span class="pill violet">Shopify</span>
-          <span class="pill violet">WordPress</span>
-          <span class="pill violet">Webflow</span>
-          <span class="pill violet">HubSpot</span>
-          <span class="pill violet">Squarespace</span>
-          <span class="pill violet">Wix</span>
-        </div>
-      </div>
+    <div class="flow">
+      <div class="step rv">Business Goals</div><div class="step rv">SEO Audit</div><div class="step rv">Keyword Research</div>
+      <div class="step rv">Competitor Analysis</div><div class="step rv">Technical Improvements</div><div class="step rv">Content Optimization</div>
+      <div class="step rv">Implementation</div><div class="step rv">Performance Tracking</div><div class="step rv">Continuous Optimization</div>
     </div>
   </div>
 </section>
 
-<section class="section" id="case-studies">
+<section id="tools" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Case Studies</h2>
-      <span class="section-count mono">05 selected</span>
+    <div class="sec-head rv">
+      <h2>The<br>toolbox.</h2>
+      <span class="tag mono">by category</span>
     </div>
-
-    <!-- CASE 1 -->
-    <div class="case">
-      <div class="case-browser">
-        <div class="browser-bar c1">
-          <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">reunionmarketing.com — landing page system</div>
-        </div>
-        <div class="browser-body">
-          <div class="client-row">
-            <span class="client-logo blue">REUNION MARKETING</span>
-            <span class="client-meta">Digital Marketing Agency · SEO Specialist</span>
-          </div>
-          <h3>Building SEO Landing Pages Across Multiple Industries</h3>
-          <div class="case-block">
-            <span class="case-block-label">Problem</span>
-            <p>Agency clients required scalable, SEO-optimized landing pages across multiple industries and locations without creating duplicate content or cannibalization issues.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-block-label">Process</span>
-            <div class="pill-row">
-              <span class="pill">Keyword Research</span>
-              <span class="pill">Search Intent Analysis</span>
-              <span class="pill">Competitor Research</span>
-              <span class="pill">Landing Page Architecture</span>
-              <span class="pill">Metadata Optimization</span>
-              <span class="pill">Internal Linking</span>
-              <span class="pill">URL Structure</span>
-              <span class="pill">Local Entity Optimization</span>
-              <span class="pill">Conversion Copywriting</span>
-            </div>
-          </div>
-          <div class="case-block case-result">
-            <span class="case-block-label">Result</span>
-            <p>Produced scalable landing pages for multiple industries while maintaining SEO best practices, unique content, and consistent quality across projects.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 2 -->
-    <div class="case">
-      <div class="case-browser">
-        <div class="browser-bar c2">
-          <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">backsupportsystems.com — content clusters</div>
-        </div>
-        <div class="browser-body">
-          <div class="client-row">
-            <span class="client-logo coral">BACK SUPPORT SYSTEMS</span>
-            <span class="client-meta">Orthopedic Ecommerce · SEO Specialist</span>
-          </div>
-          <h3>Growing Organic Traffic Through Content Clusters</h3>
-          <div class="case-block">
-            <span class="case-block-label">Problem</span>
-            <p>Large ecommerce catalog with inconsistent optimization, limited internal linking, untapped content opportunities, and a Google Business Profile that wasn't pulling its weight for local and branded search.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-block-label">Process</span>
-            <div class="pill-row">
-              <span class="pill">Content Cluster Planning</span>
-              <span class="pill">Product Page Optimization</span>
-              <span class="pill">Keyword Mapping</span>
-              <span class="pill">Internal Linking Strategy</span>
-              <span class="pill">Metadata Optimization</span>
-              <span class="pill">SEO Content Development</span>
-              <span class="pill">Category Optimization</span>
-              <span class="pill violet">Google Business Profile Audit</span>
-              <span class="pill violet">GBP Optimization</span>
-              <span class="pill violet">NAP Consistency Review</span>
-              <span class="pill violet">Local Keyword Research</span>
-            </div>
-          </div>
-          <div class="case-block case-result">
-            <span class="case-block-label">Result</span>
-            <p><b style="color:var(--coral);">400% year-over-year increase</b> in organic traffic contribution, alongside improved website architecture, topical authority, and search visibility — with the Google Business Profile brought into alignment with the site's SEO to strengthen branded and local search presence.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 3 -->
-    <div class="case">
-      <div class="case-browser">
-        <div class="browser-bar c3">
-          <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">askergoworks.com — technical SEO + CRO roadmap</div>
-        </div>
-        <div class="browser-body">
-          <div class="client-row">
-            <span class="client-logo violet">ASK ERGO WORKS</span>
-            <span class="client-meta">B2B Ergonomic Products · SEO Consultant</span>
-          </div>
-          <h3>Technical SEO & CRO Roadmap for Shopify</h3>
-          <div class="case-block">
-            <span class="case-block-label">Problem</span>
-            <p>Outdated Shopify theme, weak navigation, poor product pages, inconsistent UX, limited trust signals, and technical SEO issues affecting visibility and conversions.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-block-label">Process</span>
-            <div class="pill-row">
-              <span class="pill">Technical SEO Audit</span>
-              <span class="pill">Shopify Theme Review</span>
-              <span class="pill">Navigation Restructuring</span>
-              <span class="pill">Homepage Optimization</span>
-              <span class="pill">Product Page Optimization</span>
-              <span class="pill">Internal Linking</span>
-              <span class="pill">CRO</span>
-              <span class="pill">Accessibility Review</span>
-              <span class="pill">Competitor Analysis</span>
-              <span class="pill violet">GBP Audit & Trust Signals</span>
-            </div>
-          </div>
-          <div class="case-block case-result">
-            <span class="case-block-label">Result</span>
-            <p>Delivered a four-month implementation roadmap covering over 80 technical, UX, CRO, and SEO improvements, prioritized by impact — including a Google Business Profile audit to reinforce trust signals and keep local presence aligned with the site's technical SEO.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 4 -->
-    <div class="case">
-      <div class="case-browser">
-        <div class="browser-bar c4">
-          <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">streamcompanies.com — localized SEO content</div>
-        </div>
-        <div class="browser-body">
-          <div class="client-row">
-            <span class="client-logo blue">STREAM COMPANIES</span>
-            <span class="client-meta">Automotive · SEO Content Specialist</span>
-          </div>
-          <h3>Scaling SEO Content Across Automotive Brands</h3>
-          <div class="case-block">
-            <span class="case-block-label">Problem</span>
-            <p>Dealerships required hundreds of localized landing pages while maintaining unique content, strong internal linking, and conversion-focused messaging.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-block-label">Process</span>
-            <div class="pill-row">
-              <span class="pill">Keyword Research</span>
-              <span class="pill">Local SEO</span>
-              <span class="pill">Competitor Analysis</span>
-              <span class="pill">Inventory Page Optimization</span>
-              <span class="pill">Service Page Development</span>
-              <span class="pill">Internal Linking</span>
-              <span class="pill">HTML Optimization</span>
-              <span class="pill">Content Strategy</span>
-              <span class="pill">Conversion Optimization</span>
-              <span class="pill violet">Custom GPT for Template Production</span>
-            </div>
-          </div>
-          <div class="case-block case-result">
-            <span class="case-block-label">Result</span>
-            <p>Produced hundreds of SEO landing pages for major automotive brands while maintaining quality, consistency, and search optimization. Built a custom GPT to automatically drop copywriters' content into reusable page templates, speeding up the build-and-publish process and supporting production at scale.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CASE 5 -->
-    <div class="case">
-      <div class="case-browser">
-        <div class="browser-bar c1">
-          <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
-          <div class="browser-url">thepatchsystems.com — Webflow production line</div>
-        </div>
-        <div class="browser-body">
-          <div class="client-row">
-            <span class="client-logo blue">THE PATCH SYSTEMS</span>
-            <span class="client-meta">Healthcare Marketing / Physical Therapy · SEO Website Production Specialist</span>
-          </div>
-          <h3>Scaling SEO Website Production for Healthcare Businesses</h3>
-          <div class="case-block">
-            <span class="case-block-label">Problem</span>
-            <p>Healthcare providers required highly optimized, location-specific websites that could be produced efficiently while maintaining consistent SEO quality across every project.</p>
-          </div>
-          <div class="case-block">
-            <span class="case-block-label">Process</span>
-            <div class="pill-row">
-              <span class="pill">Scalable Webflow Templates</span>
-              <span class="pill">Standardized Internal Linking</span>
-              <span class="pill">Metadata & Heading Validation</span>
-              <span class="pill">Pre-Launch QA</span>
-              <span class="pill">Cross-Team Collaboration</span>
-              <span class="pill violet">Google Business Profile Audits</span>
-              <span class="pill violet">Local SEO Strategy</span>
-              <span class="pill violet">Location Landing Pages</span>
-            </div>
-          </div>
-          <div class="case-block case-result">
-            <span class="case-block-label">Result</span>
-            <p>Contributed to the production and optimization of <b style="color:var(--blue);">more than 1,000 SEO landing pages</b> at a pace of 13–15 per day, helping physical therapy practices improve online visibility while maintaining high production standards — with Google Business Profile audits and location landing pages kept aligned with each clinic's on-site SEO.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="recommendations">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Recommendations</h2>
-      <span class="section-count mono">from LinkedIn</span>
-    </div>
-    <div class="testi-grid">
-
-      <div class="testi-card q1">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Carlos delivers from day one. He executes technical SEO, reviews code, and aligns with campaign goals without slowing down or making excuses. I didn't need to follow up — he keeps everything moving and proactively shares new ideas. I recommend Carlos without reservation.</p>
-        <div class="testi-foot">
-          <div>
-            <span class="testi-person">Nick Cybela</span>
-            <span class="testi-role">Helping people rethink what's possible with AI</span>
-          </div>
-          <span class="testi-badge">Managed Carlos directly</span>
-        </div>
-      </div>
-
-      <div class="testi-card q2">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Carlos consistently demonstrates an exceptional level of professionalism, producing well-structured, responsive code with impressive speed and efficiency across WordPress, DealerOn, Dealer Inspire, and other CMSs — delivering on time, even under tight deadlines.</p>
-        <div class="testi-foot">
-          <div>
-            <span class="testi-person">Brandi Race</span>
-            <span class="testi-role">Front-End Web Developer & Designer · SEO Strategist</span>
-          </div>
-          <span class="testi-badge">Senior colleague</span>
-        </div>
-      </div>
-
-      <div class="testi-card q3">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text">When Carlos first joined the team, he hit the ground running, quickly mastering our tools with minimal guidance — maintaining a fast pace on page builds (well above 50+ when the average was 45) and taking on new CMSs with ease and clean code.</p>
-        <div class="testi-foot">
-          <div>
-            <span class="testi-person">Nat Kendall</span>
-            <span class="testi-role">Design Manager · Web Developer · Educator</span>
-          </div>
-          <span class="testi-badge">Managed Carlos directly</span>
-        </div>
-      </div>
-
-      <div class="testi-card q1">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Carlos is a highly intelligent and kind professional, always eager to learn and improve his programming skills. His commitment to excellence and readiness to support the team stand out.</p>
-        <div class="testi-foot">
-          <div>
-            <span class="testi-person">Daniela Achury Ruiz</span>
-            <span class="testi-role">Social Media Manager · Digital Marketing</span>
-          </div>
-          <span class="testi-badge">Worked on the same team</span>
-        </div>
-      </div>
-
-      <div class="testi-card q2">
-        <span class="testi-quote-mark">"</span>
-        <p class="testi-text">Carlos takes the time to understand the needs and priorities of the project. He is not afraid to ask questions and be aware of the daily activities.</p>
-        <div class="testi-foot">
-          <div>
-            <span class="testi-person">Julian Ricaurte</span>
-            <span class="testi-role">SEO Design · WordPress Designer · UI Designer</span>
-          </div>
-          <span class="testi-badge">Worked on the same team</span>
-        </div>
-      </div>
-
+    <div class="tools">
+      <div class="col rv"><h3>SEO</h3><ul><li>Semrush</li><li>Ahrefs</li><li>Google Search Console</li><li>Google Analytics 4</li><li>SimilarWeb</li><li>Google Keyword Planner</li><li>Google Trends</li><li>Screaming Frog</li><li>PageSpeed Insights</li><li>Lighthouse</li><li>GTmetrix</li><li>Google Business Profile Manager</li></ul></div>
+      <div class="col rv"><h3>CMS</h3><ul><li>Shopify</li><li>WordPress</li><li>Webflow</li><li>HubSpot</li><li>Squarespace</li><li>Wix</li></ul></div>
+      <div class="col rv"><h3>Analytics</h3><ul><li>GA4</li><li>Search Console</li><li>Looker Studio</li><li>Tag Manager</li></ul></div>
+      <div class="col rv"><h3>Project Mgmt</h3><ul><li>Slack</li><li>Monday.com</li><li>Workfront</li><li>ClickUp</li><li>Notion</li><li>Asana</li><li>Jira</li></ul></div>
+      <div class="col rv"><h3>Design</h3><ul><li>Relume</li><li>Figma</li></ul></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Services</h2>
-      <span class="section-count mono">25 offerings</span>
-    </div>
-    <div class="pill-row">
-      <span class="pill">Technical SEO Audits</span>
-      <span class="pill">Website Audits</span>
-      <span class="pill">Keyword Research</span>
-      <span class="pill">Competitor Analysis</span>
-      <span class="pill">Content Strategy</span>
-      <span class="pill">Content Clusters</span>
-      <span class="pill">Landing Page Optimization</span>
-      <span class="pill">Internal Linking</span>
-      <span class="pill">Google Business Profile Optimization</span>
-      <span class="pill violet">Local SEO Strategy</span>
-      <span class="pill violet">Google Maps Optimization</span>
-      <span class="pill violet">NAP Consistency Reviews</span>
-      <span class="pill violet">Local Keyword Research</span>
-      <span class="pill violet">Google Posts Strategy</span>
-      <span class="pill">Schema Markup</span>
-      <span class="pill">Structured Data</span>
-      <span class="pill">Core Web Vitals Optimization</span>
-      <span class="pill">Entity SEO</span>
-      <span class="pill coral">Answer Engine Optimization (AEO)</span>
-      <span class="pill coral">AI Search Optimization</span>
-      <span class="pill">Metadata Optimization</span>
-      <span class="pill">SEO Copywriting</span>
-      <span class="pill">Information Architecture</span>
-      <span class="pill">Site Migrations</span>
-      <span class="pill">Conversion Rate Optimization (CRO)</span>
-    </div>
+<section class="contact" id="contact">
+  <div class="wrap rv">
+    <span class="tag mono">Open to work</span>
+    <h2 style="margin-top:26px">Let's grow your <span>organic</span> revenue.</h2>
+    <p>Available for remote, full-time · Overlap with U.S. PT hours</p>
+    <a class="btn" href="mailto:milugarwebcarlos@gmail.com">milugarwebcarlos@gmail.com →</a>
   </div>
 </section>
 
-<section class="section" id="industries">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Industries</h2>
-      <span class="section-count mono">10+ served</span>
-    </div>
-    <div class="pill-row">
-      <span class="pill violet">Healthcare</span>
-      <span class="pill violet">Physical Therapy</span>
-      <span class="pill violet">Medical Devices</span>
-      <span class="pill violet">Ergonomics</span>
-      <span class="pill violet">Automotive</span>
-      <span class="pill violet">Ecommerce</span>
-      <span class="pill violet">Beauty</span>
-      <span class="pill violet">Professional Services</span>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="results">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Results</h2>
-      <span class="section-count mono">at a glance</span>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">30+</div><div class="stat-label">Businesses supported</div></div>
-      <div class="stat-card"><div class="stat-num">1000+</div><div class="stat-label">Landing pages optimized</div></div>
-      <div class="stat-card"><div class="stat-num">5000+</div><div class="stat-label">Products optimized</div></div>
-      <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Industries served</div></div>
-      <div class="stat-card"><div class="stat-num">400%</div><div class="stat-label">YoY organic growth contribution</div></div>
-      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">CMS platforms</div></div>
-    </div>
-
-    <div style="margin-top:32px;">
-      <span class="case-block-label" style="margin-bottom:10px;">Workflow</span>
-      <div class="flow">
-        <span class="flow-step">Business Goals</span><span class="flow-arrow">→</span>
-        <span class="flow-step">SEO Audit</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Keyword Research</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Competitor Analysis</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Technical Improvements</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Content Optimization</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Implementation</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Performance Tracking</span><span class="flow-arrow">→</span>
-        <span class="flow-step" style="background:var(--coral-soft);border-color:var(--coral);color:var(--coral);">Continuous Optimization</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="tools">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Tools</h2>
-      <span class="section-count mono">by category</span>
-    </div>
-    <div class="tools-grid">
-      <div class="tools-col">
-        <h4>SEO</h4>
-        <div class="pill-row">
-          <span class="pill blue">Semrush</span><span class="pill blue">Ahrefs</span><span class="pill blue">Google Search Console</span>
-          <span class="pill blue">Google Analytics 4</span><span class="pill blue">SimilarWeb</span><span class="pill blue">Google Keyword Planner</span>
-          <span class="pill blue">Google Trends</span><span class="pill blue">Screaming Frog</span><span class="pill blue">PageSpeed Insights</span>
-          <span class="pill blue">Lighthouse</span><span class="pill blue">GTmetrix</span><span class="pill blue">Google Business Profile Manager</span>
-        </div>
-      </div>
-      <div class="tools-col">
-        <h4>CMS</h4>
-        <div class="pill-row">
-          <span class="pill violet">Shopify</span><span class="pill violet">WordPress</span><span class="pill violet">Webflow</span>
-          <span class="pill violet">HubSpot</span><span class="pill violet">Squarespace</span><span class="pill violet">Wix</span>
-        </div>
-      </div>
-      <div class="tools-col">
-        <h4>Analytics</h4>
-        <div class="pill-row">
-          <span class="pill">GA4</span><span class="pill">Search Console</span><span class="pill">Looker Studio</span><span class="pill">Tag Manager</span>
-        </div>
-      </div>
-      <div class="tools-col">
-        <h4>Project Management</h4>
-        <div class="pill-row">
-          <span class="pill">Slack</span><span class="pill">Monday.com</span><span class="pill">Workfront</span><span class="pill">ClickUp</span><span class="pill">Notion</span><span class="pill">Asana</span><span class="pill">Jira</span>
-        </div>
-      </div>
-      <div class="tools-col">
-        <h4>Design</h4>
-        <div class="pill-row">
-          <span class="pill coral">Relume</span><span class="pill coral">Figma</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="ai-seo" style="border-bottom:none;">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Preparing Websites for AI Search</h2>
-      <span class="section-count mono">AEO / AI Overviews</span>
-    </div>
-    <p style="font-size:14px;color:var(--mute);max-width:680px;">Today's search experience extends beyond traditional search engines. I optimize websites to improve visibility across AI-powered search platforms through semantic optimization, entity SEO, structured data, and content architecture.</p>
-    <div class="pill-row" style="margin-top:18px;">
-      <span class="pill coral">Entity SEO</span>
-      <span class="pill coral">E-E-A-T Optimization</span>
-      <span class="pill coral">Semantic Search</span>
-      <span class="pill coral">Structured Data</span>
-      <span class="pill coral">FAQ Optimization</span>
-      <span class="pill coral">Natural Language Optimization</span>
-      <span class="pill coral">Content Architecture</span>
-      <span class="pill coral">Internal Linking</span>
-      <span class="pill coral">AI Overview Optimization</span>
-      <span class="pill coral">Answer Engine Optimization</span>
-    </div>
-    <div class="ai-platforms">
-      <span class="ai-platform">Google AI Overviews</span>
-      <span class="ai-platform">ChatGPT</span>
-      <span class="ai-platform">Claude</span>
-      <span class="ai-platform">Gemini</span>
-      <span class="ai-platform">Perplexity</span>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="cta-box">
-      <div>
-        <h3>Let's talk about your organic growth.</h3>
-        <p>milugarwebcarlos@gmail.com · Available for remote, full-time · Overlap with U.S. PT hours</p>
-      </div>
-      <a class="cta-btn" href="mailto:milugarwebcarlos@gmail.com">Get in touch →</a>
-    </div>
-  </div>
+<footer>
+  <div class="wrap"><span>© <span id="yr"></span> Carlos Carela · SEO Specialist</span><a href="#top">Back to top ↑</a></div>
 </footer>
 
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var btn=document.getElementById('menuBtn'),links=document.getElementById('links');
+  btn.addEventListener('click',function(){var o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function count(el){
+    var end=+el.dataset.count;
+    if(reduce){el.textContent=end.toLocaleString('en-US');return}
+    var t0=null,d=1400;
+    function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(end*e).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);
+  }
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
+    document.querySelectorAll('[data-count]').forEach(count);return;
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-count]').forEach(count);io.unobserve(e.target)}
+  })},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
